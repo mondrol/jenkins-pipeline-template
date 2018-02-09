@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Template
+
+parameters:
+
+- name: JOB_NAME
+- name: NAMESPACE
+- name: SOURCE_GIT_URI
+- name: SOURCE_GIT_REF
+  value: master
+- name: IMAGE_REPO
+- name: IMAGE_NAME
+- name: IMAGE_TAG
+
+objects:
+
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    name: ${JOB_NAME}
+    namespace: ${NAMESPACE}
+  spec:
+    output:
+      pushSecret:
+        name: dockerhub
+      to:
+        kind: DockerImage
+        name: docker.io/${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}
+    source:
+      contextDir: /
+      git:
+        ref: ${SOURCE_GIT_REF}
+        uri: ${SOURCE_GIT_URI}
+      type: Git
+    strategy:
+      dockerStrategy:
+        noCache: true
+      type: Docker
+    triggers:
+    - type: ConfigChange
