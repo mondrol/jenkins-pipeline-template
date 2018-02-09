@@ -20,6 +20,24 @@
         </hudson.triggers.TimerTrigger>
       </triggers>
     </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>SOURCE_GIT_URI</name>
+          <description>Git URI for the buildConfig</description>
+          <defaultValue>https://github.com/getupcloud/backup.git</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SOURCE_GIT_REF</name>
+          <description>Git URI for the git buildConfig</description>
+          <defaultValue>master</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>OUTPUT_IMAGE</name>
+          <description>Docker full output image URL</description>
+          <defaultValue>docker.io/getupcloud/${JOB_NAME}:latest</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.39">
     <scm class="hudson.plugins.git.GitSCM" plugin="git@3.3.2">
