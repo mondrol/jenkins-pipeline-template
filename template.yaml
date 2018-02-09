@@ -4,13 +4,10 @@ kind: Template
 parameters:
 
 - name: JOB_NAME
-- name: NAMESPACE
 - name: SOURCE_GIT_URI
 - name: SOURCE_GIT_REF
   value: master
-- name: IMAGE_REPO
-- name: IMAGE_NAME
-- name: IMAGE_TAG
+- name: OUTPUT_IMAGE
 
 objects:
 
@@ -18,14 +15,13 @@ objects:
   kind: BuildConfig
   metadata:
     name: ${JOB_NAME}
-    namespace: ${NAMESPACE}
   spec:
     output:
       pushSecret:
         name: dockerhub
       to:
         kind: DockerImage
-        name: docker.io/${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}
+        name: ${OUTPUT_IMAGE}
     source:
       contextDir: /
       git:
