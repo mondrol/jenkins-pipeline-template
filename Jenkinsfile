@@ -17,8 +17,7 @@ def createBuildConfig()
         def objects = openshift.process(readFile(file: 'template.yaml'),
                             "-p=JOB_NAME=${JOB_NAME}",
                             "-p=SOURCE_GIT_URI=${params.SOURCE_GIT_URI}",
-                            "-p=OUTPUT_IMAGE=${params.OUTPUT_IMAGE}"
-                            )
+                            "-p=OUTPUT_IMAGE=${params.OUTPUT_IMAGE}")
         openshift.create(objects)
     } else {
         print "BuildConfig ${JOB_NAME} already exists"
@@ -27,5 +26,5 @@ def createBuildConfig()
 
 def build()
 {
-    openshiftBuild(buildConfig: "${JOB_NAME}")
+    openshiftBuild bldCfg: "${JOB_NAME}", showBuildLogs: 'true'
 }
