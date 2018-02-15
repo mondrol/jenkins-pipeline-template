@@ -4,10 +4,19 @@ kind: Template
 parameters:
 
 - name: JOB_NAME
+  value: ""
+
 - name: SOURCE_GIT_URI
+  value: ""
+
+- name: SOURCE_GIT_DIR
+  value: /
+
 - name: SOURCE_GIT_REF
   value: master
+
 - name: OUTPUT_IMAGE
+  value: ""
 
 objects:
 
