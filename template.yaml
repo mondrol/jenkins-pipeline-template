@@ -23,7 +23,7 @@ objects:
         kind: DockerImage
         name: ${OUTPUT_IMAGE}
     source:
-      contextDir: /
+      contextDir: ${SOURCE_GIT_DIR}
       git:
         ref: ${SOURCE_GIT_REF}
         uri: ${SOURCE_GIT_URI}
