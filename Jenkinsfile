@@ -27,5 +27,5 @@ def createBuildConfig()
 
 def build()
 {
-    openshiftBuild bldCfg: "${JOB_NAME}", showBuildLogs: 'true'
+    openshiftBuild bldCfg: "${JOB_NAME}", showBuildLogs: 'true', waitTime: '30', waitUnit: 'min'
 }
