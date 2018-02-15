@@ -17,6 +17,7 @@ def createBuildConfig()
         def objects = openshift.process(readFile(file: 'template.yaml'),
                             "-p=JOB_NAME=${JOB_NAME}",
                             "-p=SOURCE_GIT_URI=${params.SOURCE_GIT_URI}",
+                            "-p=SOURCE_GIT_DIR=${params.SOURCE_GIT_DIR}",
                             "-p=OUTPUT_IMAGE=${params.OUTPUT_IMAGE}")
         openshift.create(objects)
     } else {
