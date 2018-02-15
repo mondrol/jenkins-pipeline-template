@@ -33,6 +33,11 @@
           <defaultValue>${SOURCE_GIT_REF}</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
+          <name>SOURCE_GIT_DIR</name>
+          <description>Git DIR for the buildConfig</description>
+          <defaultValue>${SOURCE_GIT_DIR}</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
           <name>OUTPUT_IMAGE</name>
           <description>Docker full output image URL</description>
           <defaultValue>${OUTPUT_IMAGE}</defaultValue>
