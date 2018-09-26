@@ -15,6 +15,7 @@ if [ -z "$SOURCE_GIT_DIR" -o "$SOURCE_GIT_URI" == "$SOURCE_GIT_DIR" ]; then
 fi
 export SOURCE_GIT_REF=$4
 export OUTPUT_IMAGE=$5
+export IMAGE_TAG=${OUTPUT_IMAGE##*:}
 
 envsubst < job.xml.template > job.xml
 
