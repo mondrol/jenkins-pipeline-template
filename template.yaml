@@ -20,12 +20,13 @@ parameters:
 
 - name: IMAGE_TAG
   value: "latest"
+
 objects:
 
 - apiVersion: v1
   kind: BuildConfig
   metadata:
-    name: ${JOB_NAME}-${IMAGE_TAG}
+    name: ${JOB_NAME}
   spec:
     output:
       pushSecret:
