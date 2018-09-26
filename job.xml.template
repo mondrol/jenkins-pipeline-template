@@ -27,21 +27,31 @@
           <description>Git URI for the buildConfig</description>
           <defaultValue>${SOURCE_GIT_URI}</defaultValue>
         </hudson.model.StringParameterDefinition>
+        
         <hudson.model.StringParameterDefinition>
           <name>SOURCE_GIT_REF</name>
           <description>Git URI for the git buildConfig</description>
           <defaultValue>${SOURCE_GIT_REF}</defaultValue>
         </hudson.model.StringParameterDefinition>
+        
         <hudson.model.StringParameterDefinition>
           <name>SOURCE_GIT_DIR</name>
           <description>Git DIR for the buildConfig</description>
           <defaultValue>${SOURCE_GIT_DIR}</defaultValue>
         </hudson.model.StringParameterDefinition>
+        
         <hudson.model.StringParameterDefinition>
           <name>OUTPUT_IMAGE</name>
           <description>Docker full output image URL</description>
           <defaultValue>${OUTPUT_IMAGE}</defaultValue>
         </hudson.model.StringParameterDefinition>
+                
+        <hudson.model.StringParameterDefinition>
+          <name>IMAGE_TAG</name>
+          <description>Image tag</description>
+          <defaultValue>${IMAGE_TAG}</defaultValue>
+        </hudson.model.StringParameterDefinition>
+
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
