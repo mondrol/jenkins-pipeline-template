@@ -10,10 +10,10 @@ node {
 
 def createBuildConfig()
 {
-    def bc = openshift.selector("buildconfig", "${JOB_NAME}")
+    def bc = openshift.selector("buildconfig", "${JOB_NAME}-${IMAGE_TAG}")
 
     if (!bc.exists()) {
-        print "Creating BuildConfig ${JOB_NAME}"
+        print "Creating BuildConfig ${JOB_NAME}-${IMAGE_TAG}"
         def objects = openshift.process(readFile(file: 'template.yaml'),
                             "-p=JOB_NAME=${JOB_NAME}",
                             "-p=SOURCE_GIT_URI=${params.SOURCE_GIT_URI}",
