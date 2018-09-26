@@ -19,7 +19,8 @@ def createBuildConfig()
                             "-p=SOURCE_GIT_URI=${params.SOURCE_GIT_URI}",
                             "-p=SOURCE_GIT_REF=${params.SOURCE_GIT_REF}",
                             "-p=SOURCE_GIT_DIR=${params.SOURCE_GIT_DIR}",
-                            "-p=OUTPUT_IMAGE=${params.OUTPUT_IMAGE}")
+                            "-p=OUTPUT_IMAGE=${params.OUTPUT_IMAGE}",
+                            "-p=IMAGE_TAG=${params.IMAGE_TAG}")
         openshift.create(objects)
     } else {
         print "BuildConfig ${JOB_NAME} already exists"
@@ -28,5 +29,5 @@ def createBuildConfig()
 
 def build()
 {
-    openshiftBuild bldCfg: "${JOB_NAME}", showBuildLogs: 'true', waitTime: '30', waitUnit: 'min'
+    openshiftBuild bldCfg: "${JOB_NAME}-${IMAGE_TAG}", showBuildLogs: 'true', waitTime: '30', waitUnit: 'min'
 }
