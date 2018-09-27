@@ -44,5 +44,3 @@ objects:
       dockerStrategy:
         noCache: true
       type: Docker
-    triggers:
-    - type: ConfigChange
