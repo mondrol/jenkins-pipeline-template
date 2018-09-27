@@ -21,7 +21,7 @@ export JOB_NAME="$1-$IMAGE_TAG"
 
 envsubst < job.xml.template > job.xml
 
-curl -s \
+curl \
     -XPOST "https://${JENKINS_HOSTNAME}/createItem?name=${JOB_NAME}" \
     -H 'Content-Type:text/xml' \
     -u "${JENKINS_USERNAME}:${JENKINS_TOKEN}" \
