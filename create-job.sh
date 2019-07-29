@@ -6,6 +6,7 @@ esac
 
 set -eu
 
+export JENKINSFILE=${JENKINSFILE:-Jenkinsfile}
 export JENKINS_HOSTNAME=$2
 export SOURCE_GIT_URI=${3%%#*}
 export SOURCE_GIT_DIR=${3##*#}
