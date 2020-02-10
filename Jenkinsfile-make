@@ -16,6 +16,14 @@ node('docker-slave') {
                     """
                 }
             }
+            
+            stage('Push Image') {
+                withDockerRegistry([credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/']) {
+                    sh """
+                      make push 
+                    """
+                }
+            }
         }
     }
 }
