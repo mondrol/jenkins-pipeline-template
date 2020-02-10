@@ -16,6 +16,14 @@ node('docker-slave') {
                     """
                 }
             }
+            stage('Test') {
+                withDockerRegistry([credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/']) {
+                    sh """
+                      make test
+                    """
+                }
+            }
+
         }
     }
 }
